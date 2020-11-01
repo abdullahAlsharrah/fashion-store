@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import products from "./ProductList";
+import styles from "./styles";
 
 function App() {
+  const productList = products.map((product) => (
+    <div>
+      <img style={styles.productImg} src={product.img} />
+      <p>{product.name}</p>
+      <p>{product.price}KD</p>
+    </div>
+  ));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <h1 style={styles.textCenter}>Fashion Store</h1>
+        <img
+          style={styles.imgCen}
+          src="https://littleavenues.com/wp-content/uploads/2020/10/1A9C8DA2-CA9D-4112-B8FC-AFF057FD8163.jpeg"
+        />
       </header>
+      <div style={styles.container}>{productList}</div>
     </div>
   );
 }
