@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     name: "Product 1",
     price: 13,
     img:
@@ -8,6 +9,7 @@ const products = [
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0015-465x551.jpg",
   },
   {
+    id: 2,
     name: "Product 2",
     price: 13,
     img:
@@ -16,6 +18,7 @@ const products = [
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0019-465x551.jpg",
   },
   {
+    id: 3,
     name: "Product 3",
     price: 15,
     img:
@@ -24,6 +27,7 @@ const products = [
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0017-465x551.jpg",
   },
   {
+    id: 4,
     name: "Product 4",
     price: 10,
     img:
