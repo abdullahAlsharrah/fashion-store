@@ -1,7 +1,13 @@
-import ProductList from "./Components/ProductList.js";
-import { GlobalStyle, Title, ShopImage, ThemButton } from "./styles";
-import { ThemeProvider } from "styled-components";
 import { useState } from "react";
+import { GlobalStyle, ThemButton } from "./styles";
+import { ThemeProvider } from "styled-components";
+import ProductList from "./Components/ProductList.js";
+import ProductDetails from "./Components/ProductDetails";
+import { Link } from "react-router-dom";
+import { Route, Switch } from "react-router";
+import Home from "./Components/Home";
+import products from "./Components/Products";
+// import Navbar from "./Components/Navbar";
 
 const theme = {
   light: {
@@ -20,6 +26,7 @@ const theme = {
   },
 };
 function App() {
+  const [_products, setProducts] = useState(products);
   const [currentTheme, setCurrentTheme] = useState("light");
   const changeTheme = () => {
     if (currentTheme === "light") {
@@ -28,16 +35,38 @@ function App() {
       setCurrentTheme("light");
     }
   };
+  const deleteProduct = (productId) => {
+    const updatedProducts = _products.filter(
+      (product) => product.id !== productId
+    );
+    setProducts(updatedProducts);
+  };
+  const createProduct = (newProduct) => {
+    setProducts([..._products, newProduct]);
+  };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
+      {/* <Navbar /> */}
       <ThemButton onClick={changeTheme}>Dark Mode</ThemButton>
-      <header>
-        <Title>Fashion Store</Title>
-        <ShopImage src="https://littleavenues.com/wp-content/uploads/2020/10/1A9C8DA2-CA9D-4112-B8FC-AFF057FD8163.jpeg" />
-      </header>
-
-      <ProductList />
+      <Link to="/Products">Products</Link>
+      <Switch>
+        <Route path="/products/:productName">
+          <ProductDetails products={_products} deleteProduct={deleteProduct} />;
+        </Route>
+        <Route path="/products">
+          <ProductList
+            products={_products}
+            deleteProduct={deleteProduct}
+            createProduct={createProduct}
+          />
+          ;
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </ThemeProvider>
   );
 }

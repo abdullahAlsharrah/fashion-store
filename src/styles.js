@@ -1,19 +1,23 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body{
+    margin: 5%;
     color: ${(props) => props.theme.mainColor};
     background-color: ${(props) => props.theme.backgroundColor};
   }
   `;
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.mainColor};
 
-const SearchBarStyled = styled.input`
-  padding: 0.5rem;
-  margin: 1rem auto;
-  display: block;
-  width: 40%;
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+  }
 `;
-const ThemButton = styled.button`
+export const GoBackButton = styled.button`
+  margin-top: 2%;
   font-size: 1em;
   border: 2px;
   border-style: solid;
@@ -25,7 +29,31 @@ const ThemButton = styled.button`
     box-shadow: ${(props) => props.theme.boxShadow};
   }
 `;
-const Product = styled.div`
+export const DeleteButtonStyled = styled.p`
+  text-align: center;
+`;
+
+export const SearchBarStyled = styled.input`
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 40%;
+`;
+export const ThemButton = styled.button`
+  font-size: 1em;
+  border: 2px;
+  border-style: solid;
+  border-radius: 7%;
+  border-color: ${(props) => props.theme.borderColor};
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
+  &:hover {
+    box-shadow: ${(props) => props.theme.boxShadow};
+  }
+`;
+export const Product = styled.div`
+  display: inline-block;
+  position: relative;
   margin: 20px 10px 20px 10px;
   border: 2px;
   border-style: solid;
@@ -38,11 +66,24 @@ const Product = styled.div`
   }
 
   /* .overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: black;
+    display: none;
+
+    &:hover {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      z-index: 100;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+    }
   } */
+  .imov {
+    width: 188px;
+    height: 222px;
+  }
 
   p {
     margin-top: 2px;
@@ -62,8 +103,27 @@ const Product = styled.div`
     height: 222px;
   }
 `;
+export const DetailWrapper = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 
-const Container = styled.div`
+  img {
+    width: 40%;
+    float: left;
+  }
+
+  p {
+    text-align: left;
+    margin-left: 50%;
+    &.price {
+      color: ${(props) => props.theme.second};
+    }
+  }
+`;
+
+export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -74,7 +134,7 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
-const ShopImage = styled.img`
+export const ShopImage = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -82,16 +142,6 @@ const ShopImage = styled.img`
   height: 300px;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   text-align: center;
 `;
-
-export {
-  GlobalStyle,
-  Product,
-  Container,
-  ShopImage,
-  Title,
-  ThemButton,
-  SearchBarStyled,
-};

@@ -7,6 +7,7 @@ const products = [
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0015-465x551.jpg",
     ovr:
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0015-465x551.jpg",
+    description: "this is the description of the product....",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const products = [
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0018-465x551.jpg",
     ovr:
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0019-465x551.jpg",
+    description: "this is the description of the product....",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const products = [
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0016-465x551.jpg",
     ovr:
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0017-465x551.jpg",
+    description: "this is the description of the product....",
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const products = [
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0007-465x551.jpg",
     ovr:
       "https://littleavenues.com/wp-content/uploads/2020/10/IMG-20201013-WA0008-465x551.jpg",
+    description: "this is the description of the product....",
   },
 ];
 
