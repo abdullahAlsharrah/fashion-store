@@ -4,6 +4,7 @@ import { DetailWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
 import productStore from "../stores/productStore";
 import { observer } from "mobx-react";
+import UpdateButton from "./buttons/UpdateButton";
 
 const ProductDetails = () => {
   const productName = useParams().productName;
@@ -24,6 +25,7 @@ const ProductDetails = () => {
           <h4>Description</h4>
           <p>{product.description}</p>
         </div>
+        <UpdateButton product={product} />
         <DeleteButton productId={product.id} />
       </DetailWrapper>
     </>
