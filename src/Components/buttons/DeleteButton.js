@@ -1,7 +1,9 @@
 import { DeleteButtonStyled } from "../../styles";
-const DeleteButton = ({ productId, deleteProduct }) => {
-  const handleDelete = () => {
-    deleteProduct(productId);
+import productStore from "../../stores/productStore";
+const DeleteButton = ({ productId }) => {
+  const handleDelete = (event) => {
+    event.preventDefault();
+    productStore.deleteProduct(productId);
   };
   return (
     <div>

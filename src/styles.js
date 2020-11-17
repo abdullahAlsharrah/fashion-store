@@ -7,6 +7,15 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme.backgroundColor};
   }
   `;
+export const UpdateButtonStyled = styled.p`
+  text-align: center;
+  cursor: pointer;
+  color: ${(props) => props.theme.second};
+
+  &:hover {
+    color: ${(props) => props.theme.second};
+  }
+`;
 export const CreateButtonStyled = styled.button`
   color: ${(props) => props.theme.backgroundColor};
   background-color: ${(props) => props.theme.mainColor};
@@ -31,6 +40,12 @@ export const GoBackButton = styled.button`
 `;
 export const DeleteButtonStyled = styled.p`
   text-align: center;
+  cursor: pointer;
+  color: ${(props) => props.theme.second};
+
+  &:hover {
+    color: ${(props) => props.theme.second};
+  }
 `;
 
 export const SearchBarStyled = styled.input`
@@ -63,6 +78,7 @@ export const Product = styled.div`
 
   &:hover {
     box-shadow: ${(props) => props.theme.boxShadow};
+    cursor: pointer;
   }
 
   /* .overlay {
@@ -104,6 +120,7 @@ export const Product = styled.div`
   }
 `;
 export const DetailWrapper = styled.div`
+  margin-top: 30px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -113,13 +130,26 @@ export const DetailWrapper = styled.div`
     width: 40%;
     float: left;
   }
-
+  h1 {
+    text-align: left;
+    margin-left: 50%;
+  }
+  h4 {
+    text-align: left;
+    margin-left: 50%;
+  }
   p {
     text-align: left;
     margin-left: 50%;
     &.price {
+      font-size: 20px;
+      font-weight: 500;
       color: ${(props) => props.theme.second};
     }
+  }
+  hr {
+    width: 30%;
+    margin-left: 50%;
   }
 `;
 

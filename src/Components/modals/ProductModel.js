@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { CreateButtonStyled } from "../../styles";
+import productStore from "../../stores/productStore";
 
-const CookieModal = ({ isOpen, closeModal, createProduct }) => {
-  const [product, setproduct] = useState({
-    name: "",
-    price: 0,
-    description: "",
-    image: "",
-  });
+const ProductModal = ({ isOpen, closeModal, oldProduct }) => {
+  const [product, setproduct] = useState(
+    oldProduct
+      ? oldProduct
+      : {
+          name: "",
+          price: 0,
+          description: "",
+          img: "",
+        }
+  );
 
   const handleChange = (event) => {
     setproduct({ ...product, [event.target.name]: event.target.value });
@@ -16,7 +21,7 @@ const CookieModal = ({ isOpen, closeModal, createProduct }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createProduct(product);
+    productStore[oldProduct ? "updateProduct" : "createProduct"](product);
     closeModal();
   };
 
@@ -33,19 +38,23 @@ const CookieModal = ({ isOpen, closeModal, createProduct }) => {
             <label>Name</label>
             <input
               type="text"
+              value={product.name}
               className="form-control"
               name="name"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-6">
             <label>Price</label>
             <input
-              type="number"
+              type="numbe"
+              value={product.price}
               min="1"
               className="form-control"
               name="price"
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -53,21 +62,29 @@ const CookieModal = ({ isOpen, closeModal, createProduct }) => {
           <label>Description</label>
           <input
             type="text"
+            value={product.description}
             className="form-control"
             name="description"
             onChange={handleChange}
+            required
           />
         </div>
         <div className="form-group">
           <label>Image</label>
-          <input type="text" className="form-control" />
+          <input
+            type="text"
+            value={product.img}
+            className="form-control"
+            name="img"
+            required
+          />
         </div>
         <CreateButtonStyled className="btn float-right">
-          Create
+          {oldProduct ? "Update" : "Create"}
         </CreateButtonStyled>
       </form>
     </Modal>
   );
 };
 
-export default CookieModal;
+export default ProductModal;

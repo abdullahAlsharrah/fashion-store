@@ -2,26 +2,32 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { DetailWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
-const ProductDetails = ({ products, deleteProduct }) => {
+import productStore from "../stores/productStore";
+import { observer } from "mobx-react";
+
+const ProductDetails = () => {
   const productName = useParams().productName;
-  const product = products.find((_product) => _product.id === +productName);
+  const product = productStore.products.find(
+    (_product) => _product.slug === productName
+  );
 
   if (!product) return <Redirect to="/products" />;
 
-  const handleDelete = (productId) => {
-    deleteProduct(productId);
-  };
   return (
     <>
       <DetailWrapper>
-        <h1>{product.name}</h1>
         <img src={product.img} alt={product.name} />
-        <p>{product.description}</p>
+        <h1>{product.name}</h1>
         <p className="price">{product.price} KD</p>
-        <DeleteButton productId={product.id} deleteProduct={handleDelete} />
+        <hr />
+        <div>
+          <h4>Description</h4>
+          <p>{product.description}</p>
+        </div>
+        <DeleteButton productId={product.id} />
       </DetailWrapper>
     </>
   );
 };
 
-export default ProductDetails;
+export default observer(ProductDetails);

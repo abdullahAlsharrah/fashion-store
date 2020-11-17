@@ -4,28 +4,24 @@ import { Container } from "../styles";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import AddButton from "./buttons/AddButton";
+import { observer } from "mobx-react";
+import productStore from "../stores/productStore";
 
-const ProductList = ({ products, deleteProduct, createProduct }) => {
+const ProductList = () => {
   const [query, setQuery] = useState("");
 
-  const productslist = products
+  const productslist = productStore.products
     .filter((product) =>
       product.name.toLowerCase().includes(query.toLowerCase())
     )
-    .map((product) => (
-      <ProductsItems
-        product={product}
-        key={product.id}
-        deleteProduct={deleteProduct}
-      />
-    ));
+    .map((product) => <ProductsItems product={product} key={product.id} />);
   return (
     <>
       <SearchBar setQuery={setQuery} />
-      <AddButton createProduct={createProduct} />
+      <AddButton />
       <Container>{productslist}</Container>
     </>
   );
 };
 
-export default ProductList;
+export default observer(ProductList);
