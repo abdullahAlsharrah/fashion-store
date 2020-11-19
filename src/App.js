@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Route, Switch } from "react-router";
 import { GlobalStyle, ThemButton } from "./styles";
 import { ThemeProvider } from "styled-components";
 import ProductList from "./Components/ProductList.js";
 import ProductDetails from "./Components/ProductDetails";
-import { Link } from "react-router-dom";
-import { Route, Switch } from "react-router";
 import Home from "./Components/Home";
 // import Navbar from "./Components/Navbar";
 
