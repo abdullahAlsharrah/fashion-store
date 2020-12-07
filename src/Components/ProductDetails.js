@@ -17,7 +17,7 @@ const ProductDetails = () => {
   return (
     <>
       <DetailWrapper>
-        <img src={product.img} alt={product.name} />
+        <img src={product.image} alt={product.name} />
         <h1>{product.name}</h1>
         <p className="price">{product.price} KD</p>
         <hr />

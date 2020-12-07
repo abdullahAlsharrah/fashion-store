@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BsPlusCircle } from "react-icons/bs";
-import ProductModal from "../modals/ProductModel";
+import ProductModal from "../modals/ProductModal";
 const AddButton = ({ createProduct }) => {
   const [isOpen, setIsOpen] = useState(false);
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { UpdateButtonStyled } from "../../styles";
-import ProductModal from "../modals/ProductModel";
+import ProductModal from "../modals/ProductModal";
 const UpdateButton = ({ product }) => {
   const [isOpen, setIsOpen] = useState(false);
 

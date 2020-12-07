@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body{
-    margin: 5%;
+    /* margin: 5%; */
     color: ${(props) => props.theme.mainColor};
     background-color: ${(props) => props.theme.backgroundColor};
   }
@@ -56,6 +56,8 @@ export const SearchBarStyled = styled.input`
 `;
 export const ThemButton = styled.button`
   font-size: 1em;
+  margin: 0px 0 0 40px;
+
   border: 2px;
   border-style: solid;
   border-radius: 7%;
@@ -75,6 +77,59 @@ export const Product = styled.div`
   border-color: ${(props) => props.theme.borderColor};
   overflow: hidden;
   border-radius: 5%;
+
+  &:hover {
+    box-shadow: ${(props) => props.theme.boxShadow};
+    cursor: pointer;
+  }
+
+  /* .overlay {
+    display: none;
+
+    &:hover {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      z-index: 100;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+    }
+  } */
+  .imov {
+    width: 188px;
+    height: 222px;
+  }
+
+  p {
+    margin-top: 2px;
+    height: 8px;
+    margin-left: 10px;
+    &:hover {
+      color: ${(props) => props.theme.second};
+    }
+
+    &.price {
+      color: ${(props) => props.theme.second};
+    }
+  }
+
+  img {
+    width: 188px;
+    height: 222px;
+  }
+`;
+export const Vendor = styled.div`
+  display: inline-block;
+  position: relative;
+  margin: 20px 10px 20px 10px;
+  border: 2px;
+  border-style: solid;
+  border-color: ${(props) => props.theme.borderColor};
+  overflow: hidden;
+  /* border-radius: 5%; */
 
   &:hover {
     box-shadow: ${(props) => props.theme.boxShadow};

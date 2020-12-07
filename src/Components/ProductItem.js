@@ -2,6 +2,7 @@ import { Product } from "../styles";
 import { Link } from "react-router-dom";
 import DeleteButton from "./buttons/DeleteButton";
 import UpdateButton from "./buttons/UpdateButton";
+import { observer } from "mobx-react";
 
 const ProductsItem = ({ product }) => {
   return (
@@ -11,10 +12,14 @@ const ProductsItem = ({ product }) => {
           {/* <div className="overlay">hello</div> */}
           <Link to={`/products/${product.slug}`}>
             <img
-              src={product.img}
+              src={product.image}
               alt=""
-              onMouseOver={(e) => (e.currentTarget.src = product.ovr)}
-              onMouseOut={(e) => (e.currentTarget.src = product.img)}
+              onMouseOver={(e) =>
+                (e.currentTarget.src = product.ovr
+                  ? product.ovr
+                  : product.image)
+              }
+              onMouseOut={(e) => (e.currentTarget.src = product.image)}
             />
           </Link>
 
@@ -28,4 +33,4 @@ const ProductsItem = ({ product }) => {
   );
 };
 
-export default ProductsItem;
+export default observer(ProductsItem);

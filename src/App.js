@@ -6,7 +6,9 @@ import { ThemeProvider } from "styled-components";
 import ProductList from "./Components/ProductList.js";
 import ProductDetails from "./Components/ProductDetails";
 import Home from "./Components/Home";
-// import Navbar from "./Components/Navbar";
+import VendorList from "./Components/VendorList";
+import VendorDetails from "./Components/VendorDetails";
+import Navbar from "./Components/Navbar";
 
 const theme = {
   light: {
@@ -35,23 +37,33 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme[currentTheme]}>
-      <GlobalStyle />
-      {/* <Navbar /> */}
-      <ThemButton onClick={changeTheme}>Dark Mode</ThemButton>
-      <Link to="/Products">Products</Link>
-      <Switch>
-        <Route path="/products/:productName">
-          <ProductDetails />
-        </Route>
-        <Route path="/products">
-          <ProductList />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </ThemeProvider>
+    <>
+      <Navbar />
+      <ThemeProvider theme={theme[currentTheme]}>
+        <GlobalStyle />
+        <ThemButton onClick={changeTheme}>Dark Mode</ThemButton>
+        <Link to="/">Home</Link>
+        <Link to="/Products">Products</Link>
+        <Link to="/Vendors">Vendors</Link>
+        <Switch>
+          <Route path="/vendors/:vendorName">
+            <VendorDetails />
+          </Route>
+          <Route path="/vendors">
+            <VendorList />
+          </Route>
+          <Route path="/products/:productName">
+            <ProductDetails />
+          </Route>
+          <Route path="/products">
+            <ProductList />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </>
   );
 }
 
